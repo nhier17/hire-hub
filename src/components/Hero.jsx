@@ -1,32 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import hero from '../assets/hero.jpeg';
 import { FaInstagram, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
 
 
 const Hero = () => {
-  const [jobs, setJobs] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const getJobs = async () => {
-      setIsLoading(true);
-      try {
-        const response = await axios.get('http://127.0.0.1:5000/api/jobs');
-        console.log(response.data);
-        setJobs(response.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    getJobs();
-  }, [])
-  
   return (
     <div className="container px-4 py-8 mx-auto">
     <div className="flex flex-col-reverse md:flex-row items-center justify-between px-6 py-12 max-w-6xl">
