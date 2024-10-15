@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { JobCard, JobDetails, LoaderSpinner }  from '../components';
-import axios from 'axios';
+import { getJobs } from '../api';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+
   useEffect(() => {
-    const getJobs = async () => {
+    const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/jobs');
-        setJobs(response.data);
-        if (response.data.length > 0) {
-          setSelectedJob(response.data[0]); 
+        const data = await getJobs()
+        setJobs(data);
+        if (data.length > 0) {
+          setSelectedJob(data[0]); 
         }
       } catch (error) {
         console.error('Error fetching jobs:', error);
@@ -22,7 +23,7 @@ const Jobs = () => {
         setIsLoading(false);
       }
     };
-    getJobs();
+    fetchData();
   }, []);
 
   const handleJobSelect = (job) => {

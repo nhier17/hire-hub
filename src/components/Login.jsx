@@ -3,11 +3,15 @@ import { MdEmail } from 'react-icons/md';
 import { FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 import CustomInput from './CustomInput';  
 import { post1, logo } from '../assets';
+import { useStateContext } from '../contexts/ContextProvider';
+import { base_url } from '../api';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { setUserInfo } = useStateContext();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,13 +31,20 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/auth/login', {
+      const response = await axios.post(`${base_url}/api/auth/login`, {
         email: formData.email,
         password: formData.password,
       });
-      console.log(response.data);
+      
       if (response.data) {
+        const { access_token, user } = response.data;
+        
+        localStorage.setItem('token', access_token);
+
+        setUserInfo(user);
+
         navigate('/');
+        toast.success(`Welcome to ${user.name} 👋`);
       }
     } catch (error) {
       console.error('Error logging in', error);
