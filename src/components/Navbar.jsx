@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpeg';
+import { logo } from '../assets';
 import { CiMenuBurger } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { motion, AnimatePresence } from 'framer-motion';

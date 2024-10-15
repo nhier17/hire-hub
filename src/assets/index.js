@@ -8,3 +8,4 @@ export { default as post7 } from './post7.jpg';
 export { default as post8 } from './post8.jpg';
 export { default as post9 } from './post9.jpg';
 export { default as post10 } from './post10.jpg';
+export { default as logo } from './logo.png';
