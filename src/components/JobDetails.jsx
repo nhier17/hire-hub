@@ -4,8 +4,16 @@ import { HiOutlineLightBulb, HiOutlineDotsHorizontal } from "react-icons/hi";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { BsArrow90DegRight } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
-const JobDetails = ({ company, title, date_posted, description, location, salary, skills_required, application_deadline }) => {
+const JobDetails = ({ company, title, date_posted, description, location, salary, skills_required, application_deadline, id }) => {
+  const navigate = useNavigate();
+
+  const handleApply = () => {
+    navigate(`/apply/${id}`);
+  }
+
+
   return (
     <div className="p-4">
       <div className="flex items-center justify-between gap-2 mb-4">  
@@ -37,7 +45,9 @@ const JobDetails = ({ company, title, date_posted, description, location, salary
       </div>
 
       <div className="flex gap-4 mb-6">
-        <button className="bg-blue-500 text-white flex items-center gap-2 py-2.5 px-5 rounded-lg hover:bg-blue-700 transition">
+        <button className="bg-blue-500 text-white flex items-center gap-2 py-2.5 px-5 rounded-lg hover:bg-blue-700 transition"
+        onClick={handleApply}
+        >
           Apply Now
           <span><FaArrowUpRightFromSquare /></span>
         </button>

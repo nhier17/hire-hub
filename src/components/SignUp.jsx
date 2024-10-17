@@ -4,7 +4,7 @@ import { FaLock, FaEye, FaEyeSlash, FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import CustomInput from './CustomInput';  
+import CustomInput, { FormFieldType } from './CustomInput';  
 import { post1, logo } from '../assets';
 import { useStateContext } from '../contexts/ContextProvider';
 import { base_url } from '../api';
@@ -78,6 +78,7 @@ const SignUp = () => {
         </section>
 
             <CustomInput
+              fieldType={FormFieldType.INPUT}
               type="text"
               name="name"
               value={formData.name}
@@ -87,15 +88,17 @@ const SignUp = () => {
               />
 
             <CustomInput
+              fieldType={FormFieldType.INPUT}
               type="email"
               name="email"
               value={formData.email}
               placeholder="Email"
               onChange={handleChange}
-              icon={<MdEmail />}
+              icon={<MdEmail  />}
             />
 
             <CustomInput
+              fieldType={FormFieldType.INPUT}
               type="password"
               name="password"
               value={formData.password}
