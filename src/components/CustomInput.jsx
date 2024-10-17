@@ -1,15 +1,18 @@
 import React from 'react';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const FormFieldType = {
   INPUT: 'input',
   SELECT: 'select',
   TEXTAREA: 'textarea',
   PHONE_INPUT: "phoneInput",
+  DATE_PICKER: "datePicker",
 }
 
-const RenderInput = ({ fieldType, name, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, label, type, required }) => {
+const RenderInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, type, required, dateFormat }) => {
   switch (fieldType) {
     case FormFieldType.INPUT:
       return (
@@ -22,8 +25,6 @@ const RenderInput = ({ fieldType, name, value, placeholder, onChange, icon, togg
           <input
             className="text-black border my-2 px-12 py-4 text-sm rounded-lg w-full focus:outline-none  focus:ring focus:border-blue-300"
             type={type}
-            name={name}
-            label={label}
             placeholder={placeholder}
             value={value}  
             onChange={onChange}
@@ -48,7 +49,6 @@ const RenderInput = ({ fieldType, name, value, placeholder, onChange, icon, togg
             international
             withCountryCallingCode
             value={value}  
-            name={name}
             onChange={(phone) => onChange({ target: { value: phone } })}
             required={required}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
@@ -59,7 +59,6 @@ const RenderInput = ({ fieldType, name, value, placeholder, onChange, icon, togg
       return (
         <textarea
           className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-          name={name}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
@@ -70,8 +69,7 @@ const RenderInput = ({ fieldType, name, value, placeholder, onChange, icon, togg
     case FormFieldType.SELECT:
       return (
         <select
-          className="text-black bg-gradient-to-br from-gray-200 to-gray-400 border-none my-2 px-12 py-4 text-sm rounded-lg w-full focus:outline-none"
-          name={name}
+          className="text-black border my-2 px-12 py-4 text-sm rounded-lg w-full focus:outline-none  focus:ring focus:border-blue-300"
           value={value}
           onChange={onChange}
           required={required}
@@ -83,17 +81,32 @@ const RenderInput = ({ fieldType, name, value, placeholder, onChange, icon, togg
           ))}
         </select>
       );
+      case FormFieldType.DATE_PICKER:
+        return (
+          <div className="relative w-full">
+          {icon && (
+            <div className="absolute top-[50%] left-0 translate-x-full -translate-y-1/2 text-black">
+              {icon}
+            </div>
+          )}
+          <ReactDatePicker
+          selected={value}
+          onChange={(date) => onChange({ target: { value: date } })}
+          dateFormat={dateFormat ?? "MM/dd/yyyy"}
+          wrapperClassName="date-picker"
+        />
+        </div>
+        )
     default:
       return null;
   }
 };
 
-const CustomInput = ({ fieldType, name, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, label, type, required }) => {
+const CustomInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, type, required, dateFormat }) => {
   return (
     <div className="relative w-full">
       <RenderInput
         fieldType={fieldType}
-        name={name}
         value={value}
         type={type}
         placeholder={placeholder}
@@ -103,8 +116,8 @@ const CustomInput = ({ fieldType, name, value, placeholder, onChange, icon, togg
         onToggle={onToggle}
         showPassword={showPassword}
         options={options}
-        label={label}
         required={required}
+        dateFormat={dateFormat}
       />
     </div>
   );

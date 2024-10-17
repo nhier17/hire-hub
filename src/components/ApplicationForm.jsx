@@ -96,7 +96,6 @@ const ApplicationForm = () => {
             <CustomInput
               fieldType={FormFieldType.INPUT}
               type="text"
-              name="full_name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               placeholder="Enter your full name"
@@ -110,7 +109,6 @@ const ApplicationForm = () => {
             <CustomInput
             fieldType={FormFieldType.INPUT}
               type="email"
-              name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
@@ -135,7 +133,6 @@ const ApplicationForm = () => {
             <CustomInput
               fieldType={FormFieldType.INPUT}
               type="url"
-              name="portfolio"
               value={portfolio}
               onChange={(e) => setPortfolio(e.target.value)}
               placeholder="Enter your portfolio URL"
@@ -148,7 +145,6 @@ const ApplicationForm = () => {
             <CustomInput
               fieldType={FormFieldType.INPUT}
               type="text"
-              name="country_of_residence"
               value={countryOfResidence}
               onChange={(e) => setCountryOfResidence(e.target.value)}
               placeholder="Enter your country of residence"
@@ -162,7 +158,6 @@ const ApplicationForm = () => {
             <CustomInput
               fieldType={FormFieldType.INPUT}
               type="text"
-              name="notice_period"
               value={noticePeriod}
               onChange={(e) => setNoticePeriod(e.target.value)}
               placeholder="Enter your notice period"
@@ -176,7 +171,6 @@ const ApplicationForm = () => {
             <CustomInput
             fieldType={FormFieldType.INPUT}
               type="number"
-              name="salary_expectation"
               value={salaryExpectation}
               onChange={(e) => setSalaryExpectation(e.target.value)}
               placeholder="Enter your salary expectation"
@@ -187,19 +181,20 @@ const ApplicationForm = () => {
           <div>
             <label className="block text-gray-700 font-medium">Years of Experience</label>
             <span className="text-sm mt-2">Please select your years of experience</span>
-            <select
-              id="years_of_experience"
+            <CustomInput
+              fieldType={FormFieldType.SELECT}
               value={yearsOfExperience}
               onChange={(e) => setYearsOfExperience(e.target.value)}
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
               required
-            >
-              <option value="">Select experience</option>
-              <option value="Up to 2 years">Up to 2 years</option>
-              <option value="3-4 years">3-4 years</option>
-              <option value="5-9 years">5-9 years</option>
-              <option value="10+ years">10+ years</option>
-            </select>
+              options={[
+                {value: 'Select Experience', label: 'Select Ecperience'},
+                {value: 'Up to 2 years', label: 'Up to 2 years'},
+                {value: '3-4 years', label: '3-4 years'},
+                {value: '5-9 years', label: '5-9 years'},
+                {value: '10+ years', label: '10+ years'},
+              ]}
+
+            />
           </div>
 
           <div>
@@ -208,7 +203,6 @@ const ApplicationForm = () => {
 
             <CustomInput
               fieldType={FormFieldType.TEXTAREA}
-              name="cover_letter"
               value={coverLetter}
               onChange={(e) => setCoverLetter(e.target.value)}
               placeholder="Enter your cover letter"
@@ -224,7 +218,6 @@ const ApplicationForm = () => {
                     <CustomInput
                       fieldType={FormFieldType.INPUT}
                         type="file"
-                        name="resume"
                         accept=".pdf,.doc,.docx"
                         onChange={handleFileChange}
                         required
