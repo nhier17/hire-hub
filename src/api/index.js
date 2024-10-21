@@ -21,3 +21,14 @@ export const applyForJob = async (jobId, userId) => {
         console.error(error);
     }
 }
+
+//get job by id
+
+export const getJobById = async (jobId) => {
+    try {
+        const response = await axios.get(`${base_url}/api/jobs/${jobId}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}

@@ -8,7 +8,6 @@ const MyNetwork = () => {
   return (
     <div className="container px-4 py-8 mx-auto pt-20">
       <div className="">
-        {/* Tab Buttons */}
         <div className="bg-white shadow-md rounded-md p-4 flex gap-4 mb-8">
           <button
             className={`px-4 py-2 rounded-lg transition-colors duration-200 ${
@@ -28,7 +27,6 @@ const MyNetwork = () => {
           </button>
         </div>
 
-        {/* Grow Tab Content */}
         {activeTab === 'Grow' && (
           <div>
             <h3 className="text-gray-500 flex justify-between mb-4 text-xl">

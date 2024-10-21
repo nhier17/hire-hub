@@ -190,3 +190,79 @@ export const posts = [
       occupation: "Product Manager at Blueberry",
     }
   ]
+
+  export const notifications = [
+    {
+      id: 1,
+      title: "Job Application Update",
+      message: "Your application for the Software Engineer position has been reviewed.",
+      timestamp: "2024-10-17T08:45:00Z",
+      isRead: false,
+    },
+    {
+      id: 2,
+      title: "New Connection Request",
+      message: "John Doe has sent you a connection request.",
+      timestamp: "2024-10-17T07:30:00Z",
+      isRead: true,
+    },
+    {
+      id: 3,
+      title: "Interview Scheduled",
+      message: "Your interview for the Senior Developer role is scheduled for tomorrow at 10:00 AM.",
+      timestamp: "2024-10-16T14:15:00Z",
+      isRead: false,
+    },
+    {
+      id: 4,
+      title: "New Job Posting",
+      message: "A new job matching your skills has been posted: Frontend Developer at XYZ Corp.",
+      timestamp: "2024-10-15T12:10:00Z",
+      isRead: true,
+    },
+    {
+      id: 5,
+      title: "Profile View",
+      message: "Your profile was viewed by a recruiter.",
+      timestamp: "2024-10-15T10:05:00Z",
+      isRead: false,
+    },
+    {
+      id: 6,
+      title: "System Maintenance",
+      message: "The system will undergo maintenance on Friday, October 20, 2024.",
+      timestamp: "2024-10-14T09:20:00Z",
+      isRead: true,
+    },
+    {
+      id: 7,
+      title: "Meeting Reminder",
+      message: "You have a meeting with John Doe on October 25, 2024 at 10:00 AM.",
+      timestamp: "2024-10-13T08:15:00Z",
+      isRead: false,
+    },
+    {
+      id: 8,
+      title: "Feedback Request",
+      message: "Your recent project has received feedback from your team members.",
+      timestamp: "2024-10-12T16:45:00Z",
+      isRead: true,
+    },
+    {
+      id: 9,
+      title: "Project Update",
+      message: "Your team has completed a project milestone.",
+      timestamp: "2024-10-11T14:30:00Z",
+      isRead: false,
+    },
+    {
+      id: 10,
+      title: "New Project Announcement",
+      message: "The company is launching a new project, which will take place in 3 months.",
+      timestamp: "2024-10-10T12:10:00Z",
+      isRead: true,
+    }
+  ];
+  
+
+  

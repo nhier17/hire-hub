@@ -63,9 +63,9 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center space-x-4">
-            <button className="text-gray-300 hover:text-black focus:outline-none" aria-label="Notifications">
+            <Link to="/notifications" className="text-gray-300 hover:text-black focus:outline-none" aria-label="Notifications">
               <IoIosNotificationsOutline size={24} className="text-black" />
-            </button>
+            </Link>
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
