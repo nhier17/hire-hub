@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { logo } from '../assets';
-import { CiMenuBurger } from "react-icons/ci";
-import { IoIosNotificationsOutline } from "react-icons/io";
+import { CiMenuBurger } from 'react-icons/ci';
+import { IoIosNotificationsOutline } from 'react-icons/io';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useStateContext } from '../contexts/ContextProvider';
+import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { userInfo } = useStateContext();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  
-  const handleMenuToggle = () => setIsMenuOpen(!isMenuOpen);
 
   const userMenuRef = useRef();
   const mobileMenuRef = useRef();
@@ -17,26 +19,15 @@ const Navbar = () => {
   // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        userMenuRef.current &&
-        !userMenuRef.current.contains(event.target)
-      ) {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
         setIsUserMenuOpen(false);
       }
-
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target) &&
-        !event.target.closest('#mobile-menu-button')
-      ) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && !event.target.closest('#mobile-menu-button')) {
         setIsMenuOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const mobileMenuVariants = {
@@ -49,66 +40,49 @@ const Navbar = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   return (
-    <nav className="bg-gray-900 fixed w-full z-50">
+    <nav className="bg-[#F4F2EE] fixed w-full z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <img className="w-12 h-12 rounded-full object-cover" src={logo} alt="HireHub Logo" />
+              <img className="w-12 h-12 rounded-md object-cover" src={logo} alt="HireHub Logo" />
             </Link>
           </div>
 
-          <div className="hidden md:flex space-x-4">
-            <Link
-              to="/"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              aria-current="page"
-            >
-              Home
-            </Link>
-            <Link
-              to="/my-network"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              My Network
-            </Link>
-            <Link
-              to="/jobs"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Jobs
-            </Link>
-            <Link
-              to="/post-job"
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Post Job
-            </Link>
-          </div>
+          <ul className="hidden md:flex space-x-4">
+            <NavLink to="/" text="Home" />
+            <NavLink to="/my-network" text="My Network" />
+            <NavLink to="/jobs" text="Jobs" />
+            <NavLink to="/post-job" text="Post Job" />
+          </ul>
 
           <div className="flex items-center space-x-4">
-            <button
-              className="text-gray-300 hover:text-white focus:outline-none"
-              aria-label="Notifications"
-            >
-              <IoIosNotificationsOutline size={24} />
+            <button className="text-gray-300 hover:text-black focus:outline-none" aria-label="Notifications">
+              <IoIosNotificationsOutline size={24} className="text-black" />
             </button>
-
             <div className="relative" ref={userMenuRef}>
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
+                className="flex items-center text-sm rounded-full focus:outline-none"
                 id="user-menu-button"
                 aria-expanded={isUserMenuOpen}
                 aria-haspopup="true"
               >
-                <img
-                  className="h-8 w-8 rounded-full object-cover"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt="User Avatar"
-                />
+                {userInfo?.profile_picture ? (
+                  <img
+                    className="h-8 w-8 rounded-full object-cover"
+                    src={userInfo.profile_picture}
+                    alt="User Avatar"
+                  />
+                ) : (
+                  <FaUser className="size-5 text-black" />
+                )}
               </button>
 
               <AnimatePresence>
@@ -129,7 +103,7 @@ const Navbar = () => {
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                     >
-                      Your Profile
+                      View Profile
                     </Link>
                     <Link
                       to="/settings"
@@ -138,34 +112,28 @@ const Navbar = () => {
                     >
                       Settings
                     </Link>
-                    <Link
-                      to="/signout"
+                    <button
+                      onClick={logout}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       role="menuitem"
                     >
                       Sign out
-                    </Link>
+                    </button>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <div className="md:hidden">
-              <button
-                onClick={handleMenuToggle}
-                id="mobile-menu-button"
-                className="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
-                aria-controls="mobile-menu"
-                aria-expanded={isMenuOpen}
-                aria-label="Toggle menu"
-              >
-                <CiMenuBurger size={24} />
-              </button>
-            </div>
+            <button
+              id="mobile-menu-button"
+              className="md:hidden text-gray-500 hover:text-black focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <CiMenuBurger size={24} />
+            </button>
           </div>
         </div>
       </div>
-
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -176,42 +144,50 @@ const Navbar = () => {
             exit="hidden"
             variants={mobileMenuVariants}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-gray-800"
+            className="md:hidden bg-white shadow-lg"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                to="/"
-                className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                to="/network"
-                className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                My Network
-              </Link>
-              <Link
-                to="/jobs"
-                className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Jobs
-              </Link>
-              <Link
-                to="/post-job"
-                className="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Post Job
-              </Link>
+              <NavLinkMobile to="/" text="Home" setIsMenuOpen={setIsMenuOpen} />
+              <NavLinkMobile to="/my-network" text="My Network" setIsMenuOpen={setIsMenuOpen} />
+              <NavLinkMobile to="/jobs" text="Jobs" setIsMenuOpen={setIsMenuOpen} />
+              <NavLinkMobile to="/post-job" text="Post Job" setIsMenuOpen={setIsMenuOpen} />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
+  );
+};
+
+const NavLink = ({ to, text }) => {
+  const { pathname } = useLocation();
+  return (
+    <li className="relative px-10">
+      <Link to={to} className="text-gray-600 hover:text-gray-900">
+        {text}
+        <motion.div
+          className="h-1 bg-black w-0 absolute bottom-[-80%] left-1/2 transform -translate-x-1/2 transition-all duration-750"
+          transition={{ duration: 0.75 }}
+          initial={{ width: '0%' }}
+          animate={{ width: pathname === to ? '50%' : '0%' }}
+        />
+      </Link>
+    </li>
+  );
+};
+
+const NavLinkMobile = ({ to, text, setIsMenuOpen }) => {
+  const { pathname } = useLocation();
+  return (
+    <Link
+      to={to}
+      className={`block px-3 py-2 rounded-md text-base font-medium ${
+        pathname === to ? 'text-black' : 'text-gray-600 hover:text-black'
+      }`}
+      onClick={() => setIsMenuOpen(false)}
+    >
+      {text}
+    </Link>
   );
 };
 
