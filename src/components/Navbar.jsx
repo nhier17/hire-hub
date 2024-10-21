@@ -39,7 +39,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // Variants for Framer Motion animations
   const mobileMenuVariants = {
     hidden: { opacity: 0, height: 0 },
     visible: { opacity: 1, height: 'auto' },
@@ -61,7 +60,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-4">
             <Link
               to="/"
@@ -71,7 +69,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/network"
+              to="/my-network"
               className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               My Network

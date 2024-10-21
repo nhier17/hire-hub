@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import Jobs from './Jobs';
 import PostJob from './PostJob';
+import MyNetwork from './MyNetwork';
 import { Login, SignUp, ApplicationForm } from '../components';
 
 const Pages = () => {
@@ -15,6 +16,7 @@ const Pages = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/apply/:id" element={<ApplicationForm />} />
+        <Route path="/my-network" element={<MyNetwork />} />
       </Routes>
     </div>
   )

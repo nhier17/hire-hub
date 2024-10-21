@@ -128,4 +128,65 @@ export const posts = [
     },
   ];
   
-  
+  export const networks = [
+    {
+      id: 1,
+      name: "Jerry Smith",
+      avatar: "https://randomuser.me/api/portraits/men/12.jpg",
+      occupation: "Operations at Antler",
+    },
+    {
+      id: 2,
+      name: "Kramer Johnson",
+      avatar: "https://randomuser.me/api/portraits/men/13.jpg",
+      occupation: "Product Manager at Fat Panda",
+    },
+    {
+      id: 3,
+      name: "Lisa Brown",
+      avatar: "https://randomuser.me/api/portraits/women/14.jpg",
+      occupation: "Sales Manager at Bubblegum",
+    },
+    {
+      id: 4,
+      name: "Mary Davis",
+      avatar: "https://randomuser.me/api/portraits/women/15.jpg",
+      occupation: "Engineering Manager at Sparkle",
+    },
+    {
+      id: 5,
+      name: "Nick Garcia",
+      avatar: "https://randomuser.me/api/portraits/men/16.jpg",
+      occupation: "HR Director at Fancy Pants",
+    },
+    {
+      id: 6,
+      name: "Olivia Thompson",
+      avatar: "https://randomuser.me/api/portraits/women/17.jpg",
+      occupation: "Marketing Director at Crazy Eights",
+    },
+    {
+      id: 7,
+      name: "Peter Parker",
+      avatar: "https://randomuser.me/api/portraits/men/18.jpg",
+      occupation: "Software Engineer at Sweet Pea",
+    },
+    {
+      id: 8,
+      name: "Quinn Wilson",
+      avatar: "https://randomuser.me/api/portraits/men/19.jpg",
+      occupation: "QA Manager at Blueberry",
+    },
+    {
+      id: 9,
+      name: "Rachel Green",
+      avatar: "https://randomuser.me/api/portraits/women/20.jpg",
+      occupation: "UX Designer at Green Apple",
+    },
+    {
+      id: 10,
+      name: "Sarah Johnson",
+      avatar: "https://randomuser.me/api/portraits/women/21.jpg",
+      occupation: "Product Manager at Blueberry",
+    }
+  ]

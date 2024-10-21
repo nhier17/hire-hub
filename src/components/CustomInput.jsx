@@ -12,7 +12,7 @@ export const FormFieldType = {
   DATE_PICKER: "datePicker",
 }
 
-const RenderInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, type, required, dateFormat }) => {
+const RenderInput = ({ fieldType, value, name, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, type, required, dateFormat }) => {
   switch (fieldType) {
     case FormFieldType.INPUT:
       return (
@@ -25,6 +25,7 @@ const RenderInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon
           <input
             className="text-black border my-2 px-12 py-4 text-sm rounded-lg w-full focus:outline-none  focus:ring focus:border-blue-300"
             type={type}
+            name={name}
             placeholder={placeholder}
             value={value}  
             onChange={onChange}
@@ -102,13 +103,14 @@ const RenderInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon
   }
 };
 
-const CustomInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, type, required, dateFormat }) => {
+const CustomInput = ({ fieldType, value, placeholder, onChange, icon, toggleIcon, onToggle, showPassword, options, type, required, dateFormat, name }) => {
   return (
     <div className="relative w-full">
       <RenderInput
         fieldType={fieldType}
         value={value}
         type={type}
+        name={name}
         placeholder={placeholder}
         onChange={onChange}
         icon={icon}

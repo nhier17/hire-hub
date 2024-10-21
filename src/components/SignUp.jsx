@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import CustomInput, { FormFieldType } from './CustomInput';  
-import { post1, logo } from '../assets';
+import { post5, logo } from '../assets';
 import { useStateContext } from '../contexts/ContextProvider';
 import { base_url } from '../api';
 
@@ -132,7 +132,7 @@ const SignUp = () => {
       </section>
 
       <img
-        src={post1}
+        src={post5}
         width={1000}
         height={1000}
         alt="success"

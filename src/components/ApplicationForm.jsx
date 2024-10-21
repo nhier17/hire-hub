@@ -88,7 +88,7 @@ const ApplicationForm = () => {
       {message && <p className="text-green-600 mb-4">{message}</p>}
       {error && <p className="text-red-600 mb-4">{error}</p>}
       
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-6">
         <div className="grid grid-cols-1 gap-6">
           <div>
           <label className="block text-gray-700 font-medium">Full Name</label>
