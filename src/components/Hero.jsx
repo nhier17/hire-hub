@@ -24,14 +24,14 @@ const Hero = () => {
             HireHub is the platform where businesses and professionals connect. We help you find your dream job and help businesses find top talent. Let's build your career and make an impact together.
           </p>
           
-          <motion.div className="flex space-x-4">
-            <button className="px-6 py-3 bg-blue-500 text-white rounded-md shadow hover:bg-blue-500 transition">
+          <motion.div className="flex gap-2">
+            <button className="px-4 py-3 bg-blue-500 text-white rounded-md shadow hover:bg-blue-500 transition">
               Sign Up
             </button>
-            <button className="px-6 py-3 bg-green-600 text-white rounded-md shadow hover:bg-green-700 transition">
+            <button className="px-4 py-3 bg-green-600 text-white rounded-md shadow hover:bg-green-700 transition">
               Log In
             </button>
-            <button className="px-6 py-3 bg-gray-600 text-white rounded-md shadow hover:bg-gray-700 transition">
+            <button className="px-4 py-3 bg-gray-600 text-white rounded-md shadow hover:bg-gray-700 transition">
               Browse Jobs
             </button>
           </motion.div>

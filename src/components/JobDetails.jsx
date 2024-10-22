@@ -13,7 +13,6 @@ const JobDetails = ({ company, title, date_posted, description, location, salary
     navigate(`/apply/${id}`);
   }
 
-
   return (
     <div className="p-4">
       <div className="flex items-center justify-between gap-2 mb-4">  
@@ -33,12 +32,12 @@ const JobDetails = ({ company, title, date_posted, description, location, salary
         <FaBriefcase className="w-5 h-5" />
         <span className="bg-[#DAEBD1] text-sm p-1 rounded-md">{location}</span>
       </div>
-      
+
       <div className="flex items-center gap-2 text-gray-700 mb-4">
         <TfiMenuAlt className="w-6 h-6" />
         <span className="text-sm"><strong>Skills Required:</strong> {skills_required}</span>
       </div>
-      
+
       <div className="flex items-center gap-2 bg-yellow-100 p-3 rounded-lg text-gray-700 mb-4">
         <HiOutlineLightBulb className="w-6 h-6" />
         <span className="text-sm">Curious where you stand? See how you compare to others who clicked apply.</span>
@@ -55,6 +54,7 @@ const JobDetails = ({ company, title, date_posted, description, location, salary
           Save
         </button>
       </div>
+
       <h4 className="text-xl font-semibold mb-2">About the Job</h4>
       <p className="text-gray-700 mb-6">{description}</p>
       <h4 className="text-xl font-semibold mb-2">Application Process</h4>
