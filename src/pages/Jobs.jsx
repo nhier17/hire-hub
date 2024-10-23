@@ -35,7 +35,7 @@ const Jobs = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 pt-20 h-screen flex flex-col lg:flex-row">
+    <div className="container mx-auto px-4 h-screen flex flex-col lg:flex-row">
       <div className={`w-full lg:w-2/3 lg:pr-4 overflow-y-auto ${selectedJob ? 'hidden lg:block' : 'block'}`}>
         <h1 className="text-2xl font-semibold mb-6">Top Job Picks for You</h1>
         {isLoading ? (

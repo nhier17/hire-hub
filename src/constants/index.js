@@ -1,7 +1,7 @@
 import {post1, post2, post3, post4, post5, post6, post7,
     post8, post9, post10
 } from '../assets';
-import { FaLock, FaEye, FaBell, FaShieldAlt, FaUserCog } from "react-icons/fa";
+import { FaLock, FaEye, FaBell, FaShieldAlt, FaUserCog, FaHome, FaEnvelopeOpen, FaBriefcase, FaUsers } from "react-icons/fa";
 
 
 export const posts = [
@@ -295,6 +295,38 @@ export const posts = [
       title: "Notifications",
       icon: <FaBell />,
       route: "notifications",
+    }
+  ]
+  export const navbarLinks = [
+    {
+      id: 1,
+      title: "Home",
+      icon: <FaHome />,
+      route: "/",
+    },
+    {
+      id: 2,
+      title: "MyNetwork",
+      icon: <FaUsers />,
+      route: "/my-network",
+    }, 
+    {
+      id: 3,
+      title: "Jobs",
+      icon: <FaBriefcase />,
+      route: "/jobs",
+    },
+    {
+      id: 4,
+      title: "Messaging",
+      icon: <FaEnvelopeOpen />,
+      route: "/messages",
+    },
+    {
+      id: 5,
+      title: "Notifications",
+      icon: <FaBell />,
+      route: "/notifications",
     }
   ]
 

@@ -7,6 +7,8 @@ export { default as Login } from './Login';
  export { default as ApplicationForm } from './ApplicationForm';
  export { default as Settings } from './Settings';
  export { default as Sidebar } from './Sidebar';
+ export { default as RightSidebar } from './RightSidebar';
+ export { default as LeftSidebar } from './LeftSidebar';
  export { default as AccountPreferences } from './AccountPreferences';
  export { default as Visibility } from './Visibility';
  export { default as Security } from './Security';
