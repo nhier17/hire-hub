@@ -1,11 +1,7 @@
 import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Home';
-import Jobs from './Jobs';
-import PostJob from './PostJob';
-import MyNetwork from './MyNetwork';
-import Notifications from './Notifications';
-import SettingsPage from './SettingsPage';
+import { Jobs, PostJob, MyNetwork, Notifications, SettingsPage, Profile } from '.';
 import { Login, SignUp, ApplicationForm } from '../components';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -24,6 +20,7 @@ const Pages = () => {
         <Route path="/my-network" element={<MyNetwork />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Routes>
       </AnimatePresence>
     </motion.div>
