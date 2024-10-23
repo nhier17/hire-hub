@@ -5,7 +5,7 @@ import { CiMenuBurger } from 'react-icons/ci';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStateContext } from '../contexts/ContextProvider';
-import { FaUser } from 'react-icons/fa';
+import { avatar } from '../assets';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -63,8 +63,8 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center space-x-4">
-            <Link to="/notifications" className="text-gray-300 hover:text-black focus:outline-none" aria-label="Notifications">
-              <IoIosNotificationsOutline size={24} className="text-black" />
+            <Link to="/notifications" className="text-gray-600 hover:text-black focus:outline-none">
+              <IoIosNotificationsOutline size={24}  />
             </Link>
             <div className="relative" ref={userMenuRef}>
               <button
@@ -81,7 +81,11 @@ const Navbar = () => {
                     alt="User Avatar"
                   />
                 ) : (
-                  <FaUser className="size-5 text-black" />
+                  <img
+                  className="h-9 w-9 rounded-full object-cover"
+                  src={avatar}
+                  alt="User Avatar"
+                />
                 )}
               </button>
 

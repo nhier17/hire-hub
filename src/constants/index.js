@@ -1,6 +1,7 @@
 import {post1, post2, post3, post4, post5, post6, post7,
     post8, post9, post10
 } from '../assets';
+import { FaLock, FaEye, FaBell, FaShieldAlt, FaUserCog } from "react-icons/fa";
 
 
 export const posts = [
@@ -264,5 +265,37 @@ export const posts = [
     }
   ];
   
+  export const sidebarLinks = [
+    {
+      id: 1,
+      title: "Account preferences",
+      icon: <FaUserCog />,
+      route: "account",
+    },
+    {
+      id: 2,
+      title: "Sign in & security",
+      icon: <FaLock />,
+      route: "security",
+    },
+    {
+      id: 3,
+      title: "Visibility",
+      icon: <FaEye />,
+      route: "visibility",
+    },
+    {
+      id: 4,
+      title: "Data privacy",
+      icon: <FaShieldAlt />,
+      route: "data-privacy",
+    },
+    {
+      id: 5,
+      title: "Notifications",
+      icon: <FaBell />,
+      route: "notifications",
+    }
+  ]
 
   
