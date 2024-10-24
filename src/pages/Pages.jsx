@@ -20,7 +20,7 @@ const Pages = () => {
         <Route path="/my-network" element={<MyNetwork />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/settings" element={<SettingsPage />} />
-        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/messages" element={<Messaging />} />
       </Routes>
       </AnimatePresence>
