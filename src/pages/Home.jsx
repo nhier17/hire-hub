@@ -1,5 +1,5 @@
 import React from 'react';
-import { LeftSidebar, Hero, RightSidebar } from '../components';
+import { LeftSidebar, Feed, RightSidebar } from '../components';
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <LeftSidebar />
       </div>
       <div>
-        <Hero />
+        <Feed />
       </div>
       <div>
         <RightSidebar />

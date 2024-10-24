@@ -330,4 +330,30 @@ export const posts = [
     }
   ]
 
+  export const conversations = [
+    {
+      id: 1,
+      contactName: "John Doe",
+      contactAvatar: "https://via.placeholder.com/150",
+      lastMessage: "Looking forward to the meeting next week!",
+      messages: [
+        { id: 1, from: "user", content: "Hey, how are you doing?" },
+        { id: 2, from: "John Doe", content: "I’m good, how about you?" },
+        { id: 3, from: "user", content: "Great! Thanks for asking." },
+        { id: 4, from: "John Doe", content: "Looking forward to the meeting next week!" }
+      ]
+    },
+    {
+      id: 2,
+      contactName: "Jane Smith",
+      contactAvatar: "https://via.placeholder.com/150",
+      lastMessage: "Sure, I can help with that.",
+      messages: [
+        { id: 1, from: "user", content: "Can you review my PR?" },
+        { id: 2, from: "Jane Smith", content: "Sure, I can help with that." }
+      ]
+    }
+  ];
+  
+
   
