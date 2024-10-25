@@ -151,23 +151,20 @@ const NavLink = ({ to, text, icon }) => {
     <li className="relative px-4 list-none">
       <Link 
         to={to} 
-        className={`text-gray-600 hover:text-gray-900 flex items-center flex-col ${
-          isActive ? 'text-black' : ''
-        }`}
-      >
+        className="text-gray-600 hover:text-gray-900 flex items-center flex-col mb-1">
         {icon}
         <span>{text}</span>
         <motion.div
-          className={`h-1 w-full absolute bottom-0 left-0 transition-all duration-500 ${
-            isActive ? 'bg-black' : 'bg-transparent'
-          }`}
-          initial={{ width: '0%' }}
-          animate={{ width: isActive ? '50%' : '0%' }}
+          className="absolute bottom-0 left-0 h-1 bg-black-1"
+          initial={false}
+          animate={{ width: isActive ? '100%' : '0%' }}
+          transition={{ duration: 0.75 }}
         />
       </Link>
     </li>
   );
 };
+
 
 
 

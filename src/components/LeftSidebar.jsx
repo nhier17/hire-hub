@@ -22,7 +22,15 @@ const LeftSidebar = () => {
           alt="" 
           className="mb-[-30px] w-full h-[60px] object-cover rounded-t-md"
         />
+        {userInfo?.profile_picture ? (
+          <img
+            src={userInfo.profile_picture}
+            alt="avatar"
+            className="h-12 w-12 object-cover rounded-full"
+          />
+        ) : (
         <img src={avatar} alt="avatar" className="h-12 w-12 object-cover rounded-full" />
+      )}
         <h2 className="text-lg font-semibold">{userInfo?.name}</h2>
         <h4 className="text-gray-600 text-sm">Software Engineer</h4>
         <p className="text-gray-400 text-sm">Nairobi, Nairobi County</p>

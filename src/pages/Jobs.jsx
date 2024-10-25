@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { JobCard, JobDetails, LoaderSpinner } from '../components';
 import { getJobs } from '../api';
 import { FaArrowLeft } from "react-icons/fa";
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Jobs = () => {
+  const navigate = useNavigate();
+  const { userInfo } = useStateContext();
+
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +30,11 @@ const Jobs = () => {
     };
     fetchData();
   }, []);
+
+  if(!userInfo) {
+    navigate("/login")
+    return null;
+  }
 
   const handleJobSelect = (job) => {
     setSelectedJob(job);

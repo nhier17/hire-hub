@@ -3,6 +3,7 @@ import Pages from './pages/Pages';
 import Navbar from './components/Navbar';
 import { Toaster } from "react-hot-toast";
 import { useStateContext } from './contexts/ContextProvider';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
   const { setUserInfo } = useStateContext();
@@ -15,11 +16,13 @@ function App() {
   }, [setUserInfo]);
 
   return (
-    <div className="App">
+    <motion.div className="App">
+      <AnimatePresence motion="wait">
       <Toaster position="top-center" /> 
       <Navbar />
       <Pages />
-    </div>
+      </AnimatePresence>
+    </motion.div>
   );
 }
 

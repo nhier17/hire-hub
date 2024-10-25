@@ -1,6 +1,8 @@
 import React from 'react';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const AccountPreferences = () => {
+  const { userInfo } = useStateContext();
   return (
     <div className="account-preferences space-y-6">
       <h2 className="text-2xl font-bold">Account Preferences</h2>
@@ -10,8 +12,7 @@ const AccountPreferences = () => {
         <input
           type="text"
           className="p-2 border rounded-md"
-          defaultValue="john_doe_92"
-          disabled
+          defaultValue={userInfo?.name}
         />
       </div>
 
@@ -20,8 +21,7 @@ const AccountPreferences = () => {
         <input
           type="email"
           className="p-2 border rounded-md"
-          defaultValue="johndoe@example.com"
-          disabled
+          defaultValue={userInfo?.email}
         />
       </div>
 

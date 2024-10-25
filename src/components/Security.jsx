@@ -22,8 +22,8 @@ const Security = () => {
       <div className="flex flex-col gap-2">
         <label className="text-gray-600">Recent Sign-in Activity</label>
         <ul className="list-disc list-inside">
-          <li>New York, USA - Chrome Browser - Oct 20, 2024</li>
-          <li>Los Angeles, USA - Safari Browser - Oct 18, 2024</li>
+          <li>Nairobi - Chrome Browser - Oct 20, 2024</li>
+          <li>Nairobi - Safari Browser - Oct 18, 2024</li>
         </ul>
       </div>
     </div>
