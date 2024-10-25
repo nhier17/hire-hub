@@ -40,6 +40,7 @@ const Login = () => {
         const { access_token, user } = response.data;
         
         localStorage.setItem('token', access_token);
+        localStorage.setItem('user', JSON.stringify(user));
 
         setUserInfo(user);
 

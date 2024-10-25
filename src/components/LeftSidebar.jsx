@@ -1,7 +1,10 @@
 import React from 'react';
 import { avatar } from '../assets';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const LeftSidebar = () => {
+  const { userInfo } = useStateContext();
+
   const recentPosts = (post) => {
     return (
       <div className="hover:bg-gray-200 flex gap-2 text-sm cursor-pointer p-2 text-gray-500 hover:text-gray-800 rounded-md">
@@ -20,7 +23,7 @@ const LeftSidebar = () => {
           className="mb-[-30px] w-full h-[60px] object-cover rounded-t-md"
         />
         <img src={avatar} alt="avatar" className="h-12 w-12 object-cover rounded-full" />
-        <h2 className="text-lg font-semibold">Barry Allen</h2>
+        <h2 className="text-lg font-semibold">{userInfo?.name}</h2>
         <h4 className="text-gray-600 text-sm">Software Engineer</h4>
         <p className="text-gray-400 text-sm">Nairobi, Nairobi County</p>
         <p className="text-gray-400 text-sm">LutherCorp</p>

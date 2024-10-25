@@ -3,8 +3,10 @@ import { BsBarChartLineFill } from "react-icons/bs";
 import { MdOutlineStackedBarChart } from "react-icons/md";
 import { FaEye, FaBriefcase, FaArrowRight  } from 'react-icons/fa';
 import { avatar } from '../assets';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const UserProfile = () => {
+    const { userInfo } = useStateContext();
 
   return (
         <div className="flex-1 max-w-2xl mx-auto md:mx-0">
@@ -24,7 +26,7 @@ const UserProfile = () => {
 
             <div className="px-4 flex-1 text-center md:text-left mt-4 md:mt-0">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
-                <h1 className="text-2xl font-bold">Barry Allen</h1>
+                <h1 className="text-2xl font-bold">{userInfo?.name}</h1>
                 <h3 className="font-semibold">LutherCorp</h3>
             </div>
             <p className="text-lg text-gray-700 mb-2">Software Engineer</p>
@@ -157,13 +159,13 @@ const UserProfile = () => {
         <div className="space-y-4">
           <div className="border-t pt-4">
             <p className="text-gray-700">
-              "John is a highly skilled engineer with a great work ethic. He consistently delivers high-quality code and is always willing to go the extra mile."
+              "{userInfo?.name} is a highly skilled engineer with a great work ethic. He consistently delivers high-quality code and is always willing to go the extra mile."
             </p>
             <p className="text-gray-600 mt-2">- Jane Smith, Tech Lead at Tech Company</p>
           </div>
           <div className="border-t pt-4">
             <p className="text-gray-700">
-              "John has been a fantastic teammate. His technical abilities are top-notch, and he is a great mentor to junior developers."
+              "{userInfo?.name} has been a fantastic teammate. His technical abilities are top-notch, and he is a great mentor to junior developers."
             </p>
             <p className="text-gray-600 mt-2">- Tom Johnson, Senior Developer at Another Tech Company</p>
           </div>

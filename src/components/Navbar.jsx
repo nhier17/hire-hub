@@ -11,9 +11,8 @@ import { navbarLinks } from '../constants';
 const Navbar = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { userInfo } = useStateContext();
+  const { setUserInfo, userInfo } = useStateContext();
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-  
 
   const mobileMenuVariants = {
     hidden: { opacity: 0, height: 0 },
@@ -27,6 +26,8 @@ const Navbar = () => {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUserInfo(null);
     navigate('/login');
   };
 
@@ -82,7 +83,7 @@ const Navbar = () => {
                     onClick={() => setIsUserMenuOpen(false)}
                   >
                     <Link
-                      to="/profile"
+                      to={`/profile/${userInfo.id}`}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       View Profile
                     </Link>
