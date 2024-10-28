@@ -94,6 +94,13 @@ const Navbar = () => {
                     >
                       Settings
                     </Link>
+                    <Link
+                      to="/post-job"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                    >
+                    Post job
+                    </Link>
                     <button
                       onClick={logout}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
