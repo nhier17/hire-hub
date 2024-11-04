@@ -24,7 +24,6 @@ HireHub is a full-stack professional networking platform inspired by LinkedIn, d
 
 ## <a name="features">🔋 Features</a>
 
-👉 **Pitch Creation**: Easy-to-use templates for creating structured, compelling pitches.
 
 👉 **Authentication**: Secure signup and login with email and password..
 
