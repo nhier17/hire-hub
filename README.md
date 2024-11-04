@@ -12,7 +12,7 @@
 
 ## <a name="introduction">🤖 Introduction</a>
 
-HireHub is a full-stack professional networking platform inspired by LinkedIn, designed to enable users to explore job opportunities, connect with other professionals, and share career updates. Built with Python Flask and React, HireHub provides an engaging and user-friendly interface for professionals to build their network and stay updated in their career fields.
+HireHub is a full-stack python flask professional networking platform inspired by LinkedIn, designed to enable users to explore job opportunities, connect with other professionals, and share career updates. Built with Python Flask and React, HireHub provides an engaging and user-friendly interface for professionals to build their network and stay updated in their career fields.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
