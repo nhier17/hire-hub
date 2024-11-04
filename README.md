@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+<div align="center"> <br /> <img src="https://github.com/nhier17/my-portfolio/blob/main/public/hh.png" alt="HireHub Banner"> <br /> <div> <img src="https://img.shields.io/badge/-Python-black?style=for-the-badge&logoColor=white&logo=python&color=3776AB" alt="Python" /> <img src="https://img.shields.io/badge/-Flask-black?style=for-the-badge&logoColor=white&logo=flask&color=000000" alt="Flask" /> <img src="https://img.shields.io/badge/-React-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="React" /> <img src="https://img.shields.io/badge/-PostgreSQL-black?style=for-the-badge&logoColor=white&logo=postgresql&color=336791" alt="PostgreSQL" /> <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="Tailwind CSS" /> </div> </div>
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/hirehub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# JWT
+JWT_SECRET_KEY=your_jwt_secret_key
+
+
+This project was bootstrapped with [Create React App](https://github.com/nhier17/my-portfolio/blob/main/public/hh.png).
 
 ## Available Scripts
 
